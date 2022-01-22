@@ -1,9 +1,11 @@
+#!/usr/bin/env python3
 import argparse
 from datetime import datetime
 from os import remove
 import re
 from sys import argv
 import time
+import json
 
 
 def modify_readme_content(content, args):
@@ -71,8 +73,9 @@ def print_warning():
 
 
 def main():
-    licenses = ["MIT", "Apache 2.0"]
-    readmes = ["left", "center", "centre", "right"]
+    with open("config.kickstart", "r") as f:
+        config = json.load(f)
+    licenses, readmes = config["license"], config["readmes"]
     parser = argparse.ArgumentParser(description="Kickstart your GitHub project!")
     parser.add_argument(
         "--name",
@@ -130,6 +133,7 @@ def main():
     # remove templates, and the generator
     remove("./readme.kickstart")
     remove("./license.kickstart")
+    remove("./config.kickstart")
     remove(argv[0])
 
 

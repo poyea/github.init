@@ -1,0 +1,25 @@
+{- header:center:start -}
+<div align="center">
+    <img src="https://avatars.githubusercontent.com/u/24757020" width="150"/>
+    <h1>{- name -}</h1>
+    <!-- describe the project -->
+</div>
+{- header:center:end -}
+{- header:left_or_right:start -}
+<img align="{- image_alignment -}" width="150" height="150" src="https://avatars.githubusercontent.com/u/24757020" alt="{- name -} logo">
+
+# {- name -}
+
+<!-- describe the project -->
+{- header:left_or_right:end -}
+## To build the project
+
+<!-- describe how to build the project -->
+
+## If you like this, please
+* Star
+* Fork
+* Contribute
+
+## License
+This repository is licensed under {- license -}. See also [LICENSE](LICENSE) for details.

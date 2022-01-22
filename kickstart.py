@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import argparse
 from datetime import datetime
+import json
 from os import remove
 import re
 from sys import argv
 import time
-import json
 
 
 def modify_readme_content(content, args):

@@ -13,6 +13,21 @@ $ git clone https://github.com/poyea/github.init.git
 $ cd github.init
 $ python --version
 Python 3.9.0
+$ ./kickstart.py -h
+usage: kickstart.py [-h] --name name --author author --license name --readme type [-q quiet]
+
+Kickstart your GitHub project!
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --name name, -n name  your project name
+  --author author, -a author
+                        your name
+  --license name, -l name
+                        license to be used
+  --readme type, -r type
+                        type of README.md to be used
+  -q quiet              suppress warning
 $ python ./kickstart.py --license "Apache 2.0" -r "left" -n "your cool project" -a "your name"
 $ cd ..
 $ mv -T github.init your_cool_project

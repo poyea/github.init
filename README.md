@@ -2,18 +2,20 @@
 
 # github.init
 
-Generate a new GitHub repository in 3 seconds (literally). There are a lot of customizations to go for a new repository, and this tool just solves the first problem for you.
-
-<br>
+Generate a new GitHub repository in 3 seconds (literally). There are a lot of customizations to do for a new repository, and this tool just solves the first problem for you.
 
 ## To generate
 
+The script and the templates themselves are self-deleting, but I assure you that this is very safe.
+
 ```bash
-$ git clone xxx
-$ cd xxx
+$ git clone https://github.com/poyea/github.init.git
+$ cd github.init
 $ python --version
 Python 3.9.0
 $ python ./kickstart.py --license "Apache 2.0" -r "left" -n "your cool project" -a "your name"
+$ cd ..
+$ mv -T github.init your_cool_project
 ```
 
 and it's ready to gooooo!

@@ -2,7 +2,7 @@
 import argparse
 from datetime import datetime
 import json
-from os import remove
+from os import remove, rmdir
 import re
 from sys import argv
 import time
@@ -134,6 +134,8 @@ def main():
     remove("./readme.kickstart")
     remove("./license.kickstart")
     remove("./config.kickstart")
+    remove("./.github/workflows/release.yml")
+    rmdir("./.github/workflows")
     remove(argv[0])
 
 

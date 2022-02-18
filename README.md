@@ -28,7 +28,7 @@ optional arguments:
   --readme type, -r type
                         type of README.md to be used
   -q quiet              suppress warning
-$ python ./kickstart.py --license "Apache 2.0" -r "left" -n "your cool project" -a "your name"
+$ ./kickstart.py --license "Apache 2.0" -r "left" -n "your cool project" -a "your name" -r "left"
 $ cd ..
 $ mv -T github.init your_cool_project
 ```

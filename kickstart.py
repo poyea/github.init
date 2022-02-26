@@ -7,12 +7,15 @@ import re
 from sys import argv
 import time
 
+def sub(tag_id, entry, body):
+    tag_string = f"{{- {tag_id} -}}"
+    return re.sub(tag_string, entry, body)
 
 def modify_readme_content(content, args):
-    content = re.sub(r"{- name -}", args.name, content)
-    content = re.sub(r"{- license -}", args.license, content)
+    content = sub("name", args.name, content)
+    content = sub("license", args.license, content)
     if args.readme.startswith("cent"):
-        content = re.sub(r"{- image_alignment -}", "center", content)
+        content = sub("image_alignment", "center", content)
         content = re.sub(
             r"{- header:center:start -}\n?([\s\S]*?)\n?{- header:center:end -}",
             r"\1",
@@ -20,7 +23,7 @@ def modify_readme_content(content, args):
             re.DOTALL | re.MULTILINE,
         )
     else:
-        content = re.sub(r"{- image_alignment -}", args.readme, content)
+        content = sub("image_alignment", args.readme, content)
         content = re.sub(
             r"{- header:left_or_right:start -}\n?([\s\S]*?)\n?{- header:left_or_right:end -}",
             r"\1",
@@ -37,8 +40,8 @@ def modify_readme_content(content, args):
 
 
 def modify_license_content(content, args):
-    content = re.sub(r"{- author -}", args.author, content)
-    content = re.sub(r"{- year -}", str(datetime.now().year), content)
+    content = sub("author", args.author, content)
+    content = sub("year", str(datetime.now().year), content)
     if args.license == "MIT":
         content = re.sub(
             r"{- license:MIT:start -}\n?([\s\S]*?)\n?{- license:MIT:end -}",
@@ -63,7 +66,7 @@ def modify_license_content(content, args):
 
 
 def print_warning():
-    print("WARNING: This script will disappear after the generation!!!")
+    print("WARNING: This script will delete itself after the generation!!!")
     print("3", end=" ", flush=True)
     time.sleep(1)
     print("2", end=" ", flush=True)

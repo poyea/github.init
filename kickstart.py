@@ -64,6 +64,20 @@ def modify_license_content(content, args):
             content,
             re.DOTALL | re.MULTILINE,
         )
+    elif args.license == "GPLv2":
+        content = re.sub(
+            r"{- license:GPLv2:start -}\n?([\s\S]*?)\n?{- license:GPLv2:end -}",
+            r"\1",
+            content,
+            re.DOTALL | re.MULTILINE,
+        )
+    elif args.license == "Empty":
+        content = re.sub(
+            r"{- license:Empty:start -}\n?([\s\S]*?)\n?{- license:Empty:end -}",
+            r"\1",
+            content,
+            re.DOTALL | re.MULTILINE,
+        )
     content = re.sub(
         r"{- license[\s\S]*? -}[\s\S]*?{- license[\s\S]*? -}",
         "",

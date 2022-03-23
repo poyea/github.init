@@ -1,4 +1,4 @@
 {
-    "license": ["empty", "MIT", "Apache 2.0", "GPLv3"],
+    "license": ["Empty", "MIT", "Apache 2.0", "GPLv3", "GPLv2"],
     "readmes": ["left", "center", "centre", "right"]
 }

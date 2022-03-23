@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 import argparse
-from datetime import datetime
 import json
-from os import remove, rmdir
 import re
-from sys import argv
 import time
+from datetime import datetime
+from os import remove, rmdir
+from sys import argv
+
 
 def sub(tag_id, entry, body):
     tag_string = f"{{- {tag_id} -}}"

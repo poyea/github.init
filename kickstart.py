@@ -55,7 +55,7 @@ def modify_license_content(content, args):
         content,
         re.DOTALL | re.MULTILINE,
     )
-    return content.lstrip("\n")
+    return content.strip("\n")
 
 
 def print_warning():

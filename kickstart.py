@@ -43,41 +43,12 @@ def modify_license_content(content, args):
     content = sub("author", args.author, content)
     content = sub("year", str(datetime.now().year), content)
     content = sub("program", args.name, content)
-    if args.license == "MIT":
-        content = re.sub(
-            r"{- license:MIT:start -}\n?([\s\S]*?)\n?{- license:MIT:end -}",
-            r"\1",
-            content,
-            re.DOTALL | re.MULTILINE,
-        )
-    elif args.license == "Apache 2.0":
-        content = re.sub(
-            r"{- license:apache2:start -}\n?([\s\S]*?)\n?{- license:apache2:end -}",
-            r"\1",
-            content,
-            re.DOTALL | re.MULTILINE,
-        )
-    elif args.license == "GPLv3":
-        content = re.sub(
-            r"{- license:GPLv3:start -}\n?([\s\S]*?)\n?{- license:GPLv3:end -}",
-            r"\1",
-            content,
-            re.DOTALL | re.MULTILINE,
-        )
-    elif args.license == "GPLv2":
-        content = re.sub(
-            r"{- license:GPLv2:start -}\n?([\s\S]*?)\n?{- license:GPLv2:end -}",
-            r"\1",
-            content,
-            re.DOTALL | re.MULTILINE,
-        )
-    elif args.license == "Empty":
-        content = re.sub(
-            r"{- license:Empty:start -}\n?([\s\S]*?)\n?{- license:Empty:end -}",
-            r"\1",
-            content,
-            re.DOTALL | re.MULTILINE,
-        )
+    content = re.sub(
+        fr"{{- license:{args.license}:start -}}\n?([\s\S]*?)\n?{{- license:{args.license}:end -}}",
+        r"\1",
+        content,
+        re.DOTALL | re.MULTILINE,
+    )
     content = re.sub(
         r"{- license[\s\S]*? -}[\s\S]*?{- license[\s\S]*? -}",
         "",

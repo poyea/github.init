@@ -4,6 +4,17 @@
 
 Generate a new GitHub repository in 3 seconds (literally). There are a lot of customizations to do for a new repository, and this tool just solves the first problem for you.
 
+## Supported licenses
+* empty license
+* Apache 2.0
+* MIT
+* GPLv2
+* GPLv3
+* BSD2
+* BSD3
+* CC0
+* Unlicense
+
 ## To generate
 
 The script and the templates themselves are self-deleting, but I assure you that this is very safe.

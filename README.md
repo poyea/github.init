@@ -19,7 +19,7 @@ Generate a new GitHub repository in 3 seconds (literally). There are a lot of cu
 
 The script and the templates themselves are self-deleting, but I assure you that this is very safe.
 
-```bash
+```console
 $ git clone https://github.com/poyea/github.init.git
 $ cd github.init
 $ python --version

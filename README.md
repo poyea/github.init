@@ -25,12 +25,14 @@ $ cd github.init
 $ python --version
 Python 3.9.0
 $ ./kickstart.py -h
-usage: kickstart.py [-h] --name name --author author --license name --readme type [-q quiet] [--dir path]
+usage: kickstart.py [-h] [-q quiet] [--dir path] --name name --author author --license name --readme type
 
 Kickstart your GitHub project!
 
 optional arguments:
   -h, --help            show this help message and exit
+  -q quiet              suppress warning
+  --dir path, -d path   target directory
   --name name, -n name  your project name
   --author author, -a author
                         your name
@@ -38,11 +40,14 @@ optional arguments:
                         license to be used
   --readme type, -r type
                         type of README.md to be used
-  -q quiet              suppress warning
-  --dir path, -d path   target directory
-$ ./kickstart.py --license "Apache 2.0" -r "left" -n "your cool project" -a "your name" -r "left" -d "../new_project"
-$ cd ..
-$ mv -T github.init your_cool_project   # Optional if directory is not set
+$ ./kickstart.py \
+    --license "Apache 2.0" \
+    -r "left" \
+    -n "your cool project" \
+    -a "your name" \
+    -r "left" \
+    -d "../new_project"
+$ cd .. && mv -T github.init your_cool_project   # Optional if directory is not set
 ```
 
 and it's ready to gooooo!

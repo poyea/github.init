@@ -76,6 +76,20 @@ def main():
     licenses, readmes = config["license"], config["readmes"]
     parser = argparse.ArgumentParser(description="Kickstart your GitHub project!")
     parser.add_argument(
+        "-q",
+        dest="quiet",
+        metavar="quiet",
+        help="suppress warning",
+    )
+    parser.add_argument(
+        "--dir",
+        "-d",
+        dest="target_dir",
+        metavar="path",
+        help="target directory",
+        required=False,
+    )
+    parser.add_argument(
         "--name",
         "-n",
         dest="name",
@@ -108,20 +122,6 @@ def main():
         help="type of README.md to be used",
         required=True,
         choices=readmes,
-    )
-    parser.add_argument(
-        "-q",
-        dest="quiet",
-        metavar="quiet",
-        help="suppress warning",
-    )
-    parser.add_argument(
-        "--dir",
-        "-d",
-        dest="target_dir",
-        metavar="path",
-        help="target directory",
-        required=False,
     )
     args = parser.parse_args()
     if args.target_dir:

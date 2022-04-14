@@ -2,9 +2,10 @@
 import argparse
 import json
 import re
+import shutil
 import time
 from datetime import datetime
-from os import remove, rmdir
+from os import chdir, fork, remove, rmdir
 from sys import argv
 
 
@@ -70,7 +71,7 @@ def print_warning():
 
 
 def main():
-    with open("config.kickstart", "r") as f:
+    with open("./config.kickstart", "r") as f:
         config = json.load(f)
     licenses, readmes = config["license"], config["readmes"]
     parser = argparse.ArgumentParser(description="Kickstart your GitHub project!")
@@ -114,7 +115,19 @@ def main():
         metavar="quiet",
         help="suppress warning",
     )
+    parser.add_argument(
+        "--dir",
+        "-d",
+        dest="target_dir",
+        metavar="path",
+        help="target directory",
+        required=False,
+    )
     args = parser.parse_args()
+    if args.target_dir:
+        shutil.copytree('.', args.target_dir, dirs_exist_ok=True)
+        chdir(args.target_dir)
+        shutil.rmtree("./.git")
     if not args.quiet:
         print_warning()
     with open("./readme.kickstart", "r") as f:
@@ -131,8 +144,8 @@ def main():
     remove("./readme.kickstart")
     remove("./license.kickstart")
     remove("./config.kickstart")
-    remove("./.github/workflows/release.yml")
-    rmdir("./.github/workflows")
+    shutil.rmtree("./.github/workflows")
+    shutil.rmtree("./.venv")
     remove(argv[0])
 
 
